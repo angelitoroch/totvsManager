@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PoMenuItem } from '@po-ui/ng-components';
 
@@ -15,7 +16,7 @@ export class AppComponent {
       label: 'Home',
       action: this.printMenuAction.bind(this),
       icon: 'po-icon po-icon-home',
-      shortLabel: 'Resume',
+      shortLabel: 'resume',
     },
     {
       label: 'Gestión de tareas',
@@ -27,7 +28,7 @@ export class AppComponent {
       label: 'TO DO LIST',
       action: this.printMenuAction.bind(this),
       icon: 'po-icon po-icon-list',
-      shortLabel: 'todDoList',
+      shortLabel: 'todolist',
     },
     {
       label: 'CALENDARIO',
@@ -48,6 +49,33 @@ export class AppComponent {
   ];
 
   printMenuAction(menu: PoMenuItem) {
-    this.menuItemSelected = menu.label;
+    switch (menu.shortLabel) {
+      case 'resume': {
+        this.router.navigate(['resume']);
+        break;
+      }
+      case 'tasks': {
+        this.menuItemSelected = menu.label;
+        this.router.navigate(['tasks']);
+        break;
+      }
+      case 'todolist': {
+        this.menuItemSelected = menu.label;
+        this.router.navigate(['todolist']);
+        break;
+      }
+      case 'calendar': {
+        this.menuItemSelected = menu.label;
+        this.router.navigate(['calendar']);
+        break;
+      }
+      case 'count': {
+        this.menuItemSelected = menu.label;
+        this.router.navigate(['count']);
+        break;
+      }
+    }
   }
+
+  constructor(private router: Router) {}
 }

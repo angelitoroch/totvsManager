@@ -11,16 +11,17 @@ import { PoMenuModule } from '@po-ui/ng-components';
 import { PhothoUserComponent } from './components/photho-user/photho-user.component';
 import { PoButtonModule } from '@po-ui/ng-components';
 import { PoDividerModule } from '@po-ui/ng-components';
+import { CountComponent } from './modules/components/count/count.component';
 
 @NgModule({
-  declarations: [AppComponent, PhothoUserComponent],
+  declarations: [AppComponent, PhothoUserComponent, CountComponent],
   imports: [
     PoMenuModule,
     PoButtonModule,
     PoDividerModule,
+    PoModule,
     BrowserModule,
     AppRoutingModule,
-    PoModule,
     RouterModule.forRoot([]),
   ],
   providers: [],
