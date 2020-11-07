@@ -12,9 +12,10 @@ import { PhothoUserComponent } from './components/photho-user/photho-user.compon
 import { PoButtonModule } from '@po-ui/ng-components';
 import { PoDividerModule } from '@po-ui/ng-components';
 import { CountComponent } from './modules/components/count/count.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, PhothoUserComponent, CountComponent],
+  declarations: [AppComponent, PhothoUserComponent, CountComponent, NotFoundComponent],
   imports: [
     PoMenuModule,
     PoButtonModule,
