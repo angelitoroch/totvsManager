@@ -13,10 +13,12 @@ import { PoButtonModule } from '@po-ui/ng-components';
 import { PoDividerModule } from '@po-ui/ng-components';
 import { CountComponent } from './modules/components/count/count.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { PoToolbarModule } from '@po-ui/ng-components';
 
 @NgModule({
   declarations: [AppComponent, PhothoUserComponent, CountComponent, NotFoundComponent],
   imports: [
+    PoToolbarModule,
     PoMenuModule,
     PoButtonModule,
     PoDividerModule,

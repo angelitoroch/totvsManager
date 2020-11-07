@@ -1,15 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { PoMenuItem } from '@po-ui/ng-components';
+
+import {
+  PoRadioGroupOption,
+  PoSelectOption,
+  PoToolbarAction,
+  PoToolbarProfile,
+} from '@po-ui/ng-components';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   menuItemSelected: string;
+  profile: PoToolbarProfile;
+  profileActions: Array<PoToolbarAction>;
+
+  public readonly iconOptions: Array<PoSelectOption> = [
+    { value: 'po-icon-star', label: 'po-icon-star' },
+  ];
+
+  public readonly toolbarActionTypes: Array<PoRadioGroupOption> = [
+    { label: 'Profile', value: 'profile' },
+  ];
 
   menus: Array<PoMenuItem> = [
     {
@@ -78,4 +95,13 @@ export class AppComponent {
   }
 
   constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.restore();
+  }
+
+  restore() {
+    this.profile = { avatar: '', subtitle: '', title: '' };
+    this.profileActions = [];
+  }
 }
