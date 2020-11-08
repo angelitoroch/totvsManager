@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+/*Componentes personalizados */
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
@@ -31,6 +33,13 @@ const routes: Routes = [
     path: 'count',
     loadChildren: () =>
       import('./modules/count/count.module').then((m) => m.CountModule),
+  },
+  {
+    path: 'category',
+    loadChildren: () =>
+      import('./modules/category/category.module').then(
+        (m) => m.CategoryModule
+      ),
   },
   {
     path: '',

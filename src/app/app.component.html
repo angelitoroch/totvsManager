@@ -1,13 +1,18 @@
 <div class="po-wrapper">
+  <!--Menu lateral derecho-->
   <po-menu p-collapsed=false p-filter [p-menus]="menus">
+    <!--Encabezado de menu lateral derecho-->
     <div *p-menu-header-template class="po-p-12 po-font-title sample-menu-header-text-color">
       <app-photho-user></app-photho-user>
     </div>
   </po-menu>
 
-  <po-toolbar p-title="TOTVS" [p-profile]="profile" [p-show-notification]="false" style="background: red;"></po-toolbar>
+  <!--Toolbar posterior-->
+  <po-toolbar p-title="TOTVS" [p-profile]="profile" [p-show-notification]="false"></po-toolbar>
 
-  <po-page-default [p-title]="menuItemSelected">
+  <!--Router outlet dinamico-->
+  <po-page-detail [p-title]="menuItemSelected">
     <router-outlet></router-outlet>
-  </po-page-default>
+  </po-page-detail>
+
 </div>

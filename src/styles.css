@@ -18,12 +18,11 @@
   --color-dashboard-brackground: rgb(31, 72, 126);
   --color-dashboard-text: rgb(244, 244, 244);
   --color-dashboard-hover: rgb(42, 157, 143);
-  --color-dashboard-2do-nivel-items:rgb(94, 177, 191);
+  --color-dashboard-2do-nivel-items: rgb(94, 177, 191);
 
   /* Colores Toolbar*/
   --color-toolbard-background: black;
   --color-toolbar-text: rgb(244, 244, 244);
-
 
   /*PAGE LOGIN*/
   --color-page-login-header-product-name-color: var(--color-neutral);
@@ -49,14 +48,18 @@
   --color-menu-color-menu-sub-item-selected: var(--color-neutral-dark-60);
   --color-menu-color-menu-responsive: var(--color-primary);
 
-  --color-menu-background-color-item-grouper-up-hover: var(--color-dashboard-2do-nivel-items);
+  --color-menu-background-color-item-grouper-up-hover: var(
+    --color-dashboard-2do-nivel-items
+  );
   --color-menu-background-color-item-hover: var(--color-dashboard-hover);
   --color-menu-background-color-item-selected: var(--color-neutral-light-80);
   --color-menu-background-color-menu: var(--color-dashboard-brackground);
   --color-menu-background-color-menu-responsive-overlay: var(
     --color-secondary-dark-60-alpha-70
   );
-  --color-menu-background-color-responsive: var(--color-dashboard-2do-nivel-items);
+  --color-menu-background-color-responsive: var(
+    --color-dashboard-2do-nivel-items
+  );
   --color-menu-background-color-sub-items: var(--color-neutral-light-98);
   --color-menu-background-color-sub-item-selected: var(
     --color-neutral-light-80
@@ -64,7 +67,7 @@
 
   --color-menu-border-color-menu-item-selected: var(--color-danger-light-40);
   --color-menu-border-left-item: var(--color-transparent);
-  --color-menu-border-top-item-grouper-up-hover: var( --color-secondary);
+  --color-menu-border-top-item-grouper-up-hover: var(--color-secondary);
   --color-menu-border-top-logo: var(--color-dashboard-brackground);
   --color-menu-border-top-collapse-button: var(--color-neutral-alpha-45);
 
@@ -113,7 +116,7 @@
   \*------------------------------------*/
   --color-avatar-background-color-avatar: white;
 
-    /*------------------------------------*\
+  /*------------------------------------*\
     PAGE HEADER
   \*------------------------------------*/
 

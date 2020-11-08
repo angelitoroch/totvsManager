@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+//Componentes y elementos de PO UI
 import { PoMenuItem } from '@po-ui/ng-components';
-
 import {
   PoRadioGroupOption,
   PoSelectOption,
@@ -30,16 +30,42 @@ export class AppComponent implements OnInit {
 
   menus: Array<PoMenuItem> = [
     {
-      label: 'Home',
+      label: 'HOME',
       action: this.printMenuAction.bind(this),
       icon: 'po-icon po-icon-home',
       shortLabel: 'resume',
     },
     {
-      label: 'Gestión de tareas',
+      label: 'GESTION DE TAREAS',
       action: this.printMenuAction.bind(this),
       icon: 'po-icon po-icon-clipboard',
       shortLabel: 'tasks',
+      subItems: [
+        {
+          label: 'Crear Tarea',
+          action: this.printMenuSubItem.bind(this),
+        },
+        {
+          label: 'Modificar Tarea',
+          action: this.printMenuSubItem.bind(this),
+        },
+      ],
+    },
+    {
+      label: 'GESTION DE CATEGORIAS',
+      action: this.printMenuAction.bind(this),
+      icon: 'po-icon po-icon-pushcart',
+      shortLabel: 'category',
+      subItems: [
+        {
+          label: 'Crear Categoria',
+          action: this.printMenuSubItem.bind(this),
+        },
+        {
+          label: 'Modificar Categoria',
+          action: this.printMenuSubItem.bind(this),
+        },
+      ],
     },
     {
       label: 'TO DO LIST',
@@ -52,16 +78,6 @@ export class AppComponent implements OnInit {
       action: this.printMenuAction.bind(this),
       icon: 'po-icon po-icon-calendar',
       shortLabel: 'calendar',
-    },
-    {
-      label: 'Cuenta',
-      icon: 'po-icon po-icon-user',
-      shortLabel: 'count',
-      subItems: [
-        {
-          label: 'Cerrar Sesión',
-        },
-      ],
     },
   ];
 
@@ -81,6 +97,11 @@ export class AppComponent implements OnInit {
         this.router.navigate(['todolist']);
         break;
       }
+      case 'category': {
+        this.menuItemSelected = menu.label;
+        this.router.navigate(['category']);
+        break;
+      }
       case 'calendar': {
         this.menuItemSelected = menu.label;
         this.router.navigate(['calendar']);
@@ -89,6 +110,32 @@ export class AppComponent implements OnInit {
       case 'count': {
         this.menuItemSelected = menu.label;
         this.router.navigate(['count']);
+        break;
+      }
+    }
+  }
+
+  printMenuSubItem(menu: PoMenuItem) {
+    switch (menu.label) {
+      case 'Crear Tarea': {
+        this.menuItemSelected = menu.label;
+        console.log('entro');
+        this.router.navigate(['tasks/makeTask']);
+        break;
+      }
+      case 'Modificar Tarea': {
+        this.menuItemSelected = menu.label;
+        this.router.navigate(['tasks/modifyTask']);
+        break;
+      }
+      case 'Crear Categoria': {
+        this.menuItemSelected = menu.label;
+        this.router.navigate(['category/makeCategory']);
+        break;
+      }
+      case 'Modificar Categoria': {
+        this.menuItemSelected = menu.label;
+        this.router.navigate(['category/modifyCategory']);
         break;
       }
     }
