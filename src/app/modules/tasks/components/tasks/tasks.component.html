@@ -1,0 +1,31 @@
+<ng-container *ngIf="tasks">
+
+  <!--toogle que mostrara las categorias que hay hasta registradas-->
+  <div class="po-row">
+    <po-select class="po-md-3" name="toggle" [(ngModel)]="toggle" p-label="Selecciona la categoria"
+      [p-options]="toggleOptions">
+    </po-select>
+  </div>
+
+  <!--Se muestran los items de la categoria seleccionada anteriormente-->
+  <form #f="ngForm">
+    <div *ngFor="let task of tasks">
+      <div class="po-row-6 ">
+        <po-widget class="po-sm-12 po-lg-6" p-height="200" p-title="Categoria: " p-primary-label="Ver mas detalles"
+          (p-primary-action)="openModalDetails(task)">
+          <div class="po-md-8">
+            <p><strong>Nombre:</strong> {{ task.name }}</p>
+            <p><strong>Descripcion:</strong> {{ task.description }}</p>
+          </div>
+        </po-widget>
+      </div>
+    </div>
+  </form>
+
+</ng-container>
+
+<!--Modal que mostrara la información del item seleccionado de la lista-->
+<po-modal #modal p-title="Detalles">
+  <!--Modal que comunica al componente padre del hijo con @Input-->
+  <app-modal-detail [taskHijo]="taskPadre" *ngIf='taskPadre'></app-modal-detail>
+</po-modal>

@@ -1,1 +1,124 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  /*COMMON*/
+  --color-wrapper-menu-panel-color-background: var(--color-white);
+  --color-overlay-background-color-overlay: var(
+    --color-secondary-dark-60-alpha-70
+  );
+
+  --color-hr-border-top: var(--color-neutral-light-90);
+
+  /* Botão primário, Links, Cor da borda do input selecionado, Cor da borda do botão secundário */
+  --color-primary: rgb(29, 52, 97);
+
+  /* Secondary */
+  --color-secondary: rgb(31, 72, 126);
+
+  /* Colores Dashboard*/
+  --color-dashboard-brackground: rgb(31, 72, 126);
+  --color-dashboard-text: rgb(244, 244, 244);
+  --color-dashboard-hover: rgb(42, 157, 143);
+  --color-dashboard-2do-nivel-items: rgb(94, 177, 191);
+
+  /* Colores Toolbar*/
+  --color-toolbard-background: black;
+  --color-toolbar-text: rgb(244, 244, 244);
+
+  /*PAGE LOGIN*/
+  --color-page-login-header-product-name-color: var(--color-neutral);
+  --color-page-login-header-welcome-color: var(--color-secondary);
+  --color-page-login-background-color: rgb(226, 234, 252);
+  --color-page-login-background-highlight-image: var(--color-neutral-light-90);
+  --color-page-login-highlight-text-color: var(--color-white);
+  --color-page-login-link-color: var(--color-primary);
+  --color-page-login-link-hover-color: var(--color-primary-dark-20);
+  --color-page-login-popover-color-attempts: var(--color-primary);
+  --color-page-login-popover-color-title: var(--color-tertiary);
+  --color-page-login-support-background-color: var(--color-white);
+  --color-page-login-support-color: var(--color-primary);
+
+  /*------------------------------------*\
+    MENU
+  \*------------------------------------*/
+
+  --color-menu-color-menu-collapse-icon: white;
+  --color-menu-color-menu-item-text: var(--color-dashboard-text);
+  --color-menu-color-menu-item-selected: var(--color-primary);
+  --color-menu-color-menu-sub-item-text: black;
+  --color-menu-color-menu-sub-item-selected: var(--color-neutral-dark-60);
+  --color-menu-color-menu-responsive: var(--color-primary);
+
+  --color-menu-background-color-item-grouper-up-hover: var(
+    --color-dashboard-2do-nivel-items
+  );
+  --color-menu-background-color-item-hover: var(--color-dashboard-hover);
+  --color-menu-background-color-item-selected: var(--color-neutral-light-80);
+  --color-menu-background-color-menu: var(--color-dashboard-brackground);
+  --color-menu-background-color-menu-responsive-overlay: var(
+    --color-secondary-dark-60-alpha-70
+  );
+  --color-menu-background-color-responsive: var(
+    --color-dashboard-2do-nivel-items
+  );
+  --color-menu-background-color-sub-items: var(--color-neutral-light-98);
+  --color-menu-background-color-sub-item-selected: var(
+    --color-neutral-light-80
+  );
+
+  --color-menu-border-color-menu-item-selected: var(--color-danger-light-40);
+  --color-menu-border-left-item: var(--color-transparent);
+  --color-menu-border-top-item-grouper-up-hover: var(--color-secondary);
+  --color-menu-border-top-logo: var(--color-dashboard-brackground);
+  --color-menu-border-top-collapse-button: var(--color-neutral-alpha-45);
+
+  /*------------------------------------*\
+   MENU FILTER
+  \*------------------------------------*/
+
+  --color-menu-filter-color-icon: var(--color-primary);
+  --color-menu-filter-color-text: var(--color-neutral-dark-60);
+
+  --color-menu-filter-background-color: var(--color-neutral-light-98);
+
+  --color-menu-filter-border: var(--color-neutral-alpha-45);
+  --color-menu-filter-border-focusable: var(--color-neutral);
+
+  /*------------------------------------*\
+    MENU PANEL
+  \*------------------------------------*/
+
+  --color-menu-panel-background-color-item-hover: var(--color-black-alpha-15);
+  --color-menu-panel-background-color-item-selected: var(
+    --color-neutral-light-80
+  );
+  --color-menu-panel-background-color-menu: var(--color-white);
+
+  --color-menu-panel-border-top-logo: var(--color-neutral-light-80);
+
+  --color-menu-panel-color-menu-item-text: var(--color-primary);
+  --color-menu-panel-color-menu-item-selected: var(--color-neutral-dark-60);
+
+  /*------------------------------------*\
+    TOOLBAR
+  \*------------------------------------*/
+
+  --color-toolbar-background-color-badge: var(--color-danger);
+  --color-toolbar-background-color-toolbar: var(--color-toolbard-background);
+
+  --color-toolbar-border-color-separator: var(--color-neutral-light-90);
+
+  --color-toolbar-color-badge-text: var(--color-white);
+  --color-toolbar-color-default: var(--color-primary);
+  --color-toolbar-color-title: var(--color-toolbar-text);
+
+  /*------------------------------------*\
+    AVATAR
+  \*------------------------------------*/
+  --color-avatar-background-color-avatar: white;
+
+  /*------------------------------------*\
+    PAGE HEADER
+  \*------------------------------------*/
+
+  --color-page-header-color-title: black;
+}

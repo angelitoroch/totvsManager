@@ -24,6 +24,9 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@po-ui/style/css/po-theme-default.min.css",
+              "./node_modules/@po-ui/style/css/po-theme-default-variables.min.css",
+              "./node_modules/@po-ui/style/css/po-theme-core.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -88,6 +91,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@po-ui/style/css/po-theme-default.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "totvsManager"
+    }
+  },
+  "defaultProject": "totvsManager",
+  "cli": {
+    "analytics": "1be7f215-02bd-4ae4-b444-4356ea122e9a"
+  }
 }
