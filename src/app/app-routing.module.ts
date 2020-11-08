@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 /*Componentes personalizados */
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
+//Ruteo
 const routes: Routes = [
   {
     path: 'resume',

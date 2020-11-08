@@ -8,6 +8,7 @@ import { Task } from '../interfaces/task';
   providedIn: 'root',
 })
 export class TaskService {
+  //Se agrega la ruta de la api para la parte de las tareas
   baseURL = environment.apiURL + '/tasks/';
 
   constructor(private http: HttpClient) {}

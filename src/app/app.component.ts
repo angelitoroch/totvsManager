@@ -3,12 +3,7 @@ import { Router } from '@angular/router';
 
 //Componentes y elementos de PO UI
 import { PoMenuItem } from '@po-ui/ng-components';
-import {
-  PoRadioGroupOption,
-  PoSelectOption,
-  PoToolbarAction,
-  PoToolbarProfile,
-} from '@po-ui/ng-components';
+import { PoToolbarAction, PoToolbarProfile } from '@po-ui/ng-components';
 
 @Component({
   selector: 'app-root',
@@ -16,17 +11,9 @@ import {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  menuItemSelected: string;
+  menuItemSelected: string;//Item seleccionado del menu
   profile: PoToolbarProfile;
   profileActions: Array<PoToolbarAction>;
-
-  public readonly iconOptions: Array<PoSelectOption> = [
-    { value: 'po-icon-star', label: 'po-icon-star' },
-  ];
-
-  public readonly toolbarActionTypes: Array<PoRadioGroupOption> = [
-    { label: 'Profile', value: 'profile' },
-  ];
 
   menus: Array<PoMenuItem> = [
     {
@@ -81,9 +68,11 @@ export class AppComponent implements OnInit {
     },
   ];
 
+  //Opciones en el menu lateral izquierdo, 1er nivel
   printMenuAction(menu: PoMenuItem) {
     switch (menu.shortLabel) {
       case 'resume': {
+        this.menuItemSelected = menu.label;
         this.router.navigate(['resume']);
         break;
       }
@@ -115,6 +104,7 @@ export class AppComponent implements OnInit {
     }
   }
 
+  //Opciones en el menu lateral izquierdo, 2do nivel
   printMenuSubItem(menu: PoMenuItem) {
     switch (menu.label) {
       case 'Crear Tarea': {
@@ -141,14 +131,11 @@ export class AppComponent implements OnInit {
     }
   }
 
+  //Constructor de la clase y se inicializa el router para redirigir entre paginas
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.restore();
-  }
-
-  restore() {
+    //TODO Falta poner acciones en el menu del user icon;
     this.profile = { avatar: '', subtitle: '', title: '' };
-    this.profileActions = [];
   }
 }
