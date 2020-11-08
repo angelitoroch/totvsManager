@@ -27,5 +27,5 @@
 <!--Modal que mostrara la información del item seleccionado de la lista-->
 <po-modal #modal p-title="Detalles">
   <!--Modal que comunica al componente padre del hijo con @Input-->
-  <app-modal-detail [taskHijo]="taskPadre"></app-modal-detail>
+  <app-modal-detail [taskHijo]="taskPadre" *ngIf='taskPadre'></app-modal-detail>
 </po-modal>

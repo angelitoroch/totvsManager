@@ -12,6 +12,7 @@ import { PoFieldModule } from '@po-ui/ng-components';
 import { FormsModule } from '@angular/forms';
 import { PoModalModule } from '@po-ui/ng-components';
 import { ModalDetailComponent } from './components/modal-detail/modal-detail.component';
+import { PoDynamicModule } from '@po-ui/ng-components';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ModalDetailComponent } from './components/modal-detail/modal-detail.com
     ModalDetailComponent,
   ],
   imports: [
+    PoDynamicModule,
     PoModalModule,
     FormsModule,
     PoFieldModule,
