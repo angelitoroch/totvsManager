@@ -14,12 +14,12 @@ import { Category } from 'src/app/modules/category/interfaces/category';
 export class TasksComponent implements OnInit {
   tasks: Task[]; //Arreglo donde se guardaran los valores de todos las taareas
   taskPadre: Task; //Variable del tipo Task que servira para pasar objeto a un componente Hijo
-  typeCategory: number = 0;
-  optionsCategory: string[];
+  typeCategory: number = 0; //Tategoria por default
   categorys: Category[];
   category: Category;
   @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
 
+  //Array con las opciones definidas para las categorias
   typesCategorys: Array<PoSelectOption> = [
     { label: 'TODAS LAS CATEGORIAS', value: 0 },
   ];
@@ -66,7 +66,6 @@ export class TasksComponent implements OnInit {
     );
   }
 
-  // TODO : FALTA ESTA PARTE 11/11/2020
   //Metodo que obtiene las categorias y las agrega al arreglo typeCategorys
   joinCategorys() {
     for (let category of this.categorys) {
@@ -74,6 +73,21 @@ export class TasksComponent implements OnInit {
         label: category.nombre,
         value: category.id,
       });
+    }
+  }
+
+  //Metodo que se dispara cuando se cambia la opcion en las opciones de selecciona tu categotria
+  changeCategoryId(id: number) {
+    if (id != 0) {
+      this.taskService.getTasksId(id).subscribe(
+        (tasksFromApi: Task[]) => {
+          console.log(tasksFromApi);
+          this.tasks = tasksFromApi;
+        },
+        (error) => console.error(error)
+      );
+    } else {
+      this.getTasks();
     }
   }
 }

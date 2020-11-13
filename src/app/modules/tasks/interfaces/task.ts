@@ -5,4 +5,5 @@ export interface Task {
   startdate: string;
   enddate: string;
   categoria_id: number;
+  status: string;
 }

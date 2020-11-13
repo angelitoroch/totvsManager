@@ -3,7 +3,7 @@
   <!--toogle que mostrara las categorias que hay hasta registradas-->
   <div class="po-row">
     <po-select class="po-md-3" name="typeCategory" p-label="Selecciona la categoria" [(ngModel)]=typeCategory
-      [p-options]="typesCategorys"> </po-select>
+      [p-options]="typesCategorys" (p-change)="changeCategoryId(typeCategory)"> </po-select>
   </div>
 
   <!--Se muestran los items de la categoria seleccionada anteriormente-->
