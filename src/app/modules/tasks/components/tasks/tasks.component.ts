@@ -3,6 +3,8 @@ import { PoButtonGroupToggle, PoSelectOption } from '@po-ui/ng-components';
 import { Task } from '../../interfaces/task';
 import { TaskService } from '../../service/task.service';
 import { PoModalComponent } from '@po-ui/ng-components';
+import { CategoryService } from 'src/app/modules/category/services/category.service';
+import { Category } from 'src/app/modules/category/interfaces/category';
 
 @Component({
   selector: 'app-tasks',
@@ -12,12 +14,23 @@ import { PoModalComponent } from '@po-ui/ng-components';
 export class TasksComponent implements OnInit {
   tasks: Task[]; //Arreglo donde se guardaran los valores de todos las taareas
   taskPadre: Task; //Variable del tipo Task que servira para pasar objeto a un componente Hijo
-  toggle: PoButtonGroupToggle;
+  typeCategory: number = 0; //Tategoria por default
+  categorys: Category[];
+  category: Category;
   @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
 
-  constructor(private taskService: TaskService) {}
+  //Array con las opciones definidas para las categorias
+  typesCategorys: Array<PoSelectOption> = [
+    { label: 'TODAS LAS CATEGORIAS', value: 0 },
+  ];
 
-  ngOnInit(): void {
+  constructor(
+    private taskService: TaskService,
+    private categoryService: CategoryService
+  ) {}
+
+  ngOnInit() {
+    this.getCategorys();
     this.getTasks();
   }
 
@@ -29,9 +42,7 @@ export class TasksComponent implements OnInit {
 
   //TODO Falta definir una opcion por default y que obtenga las categorias de los productos
   readonly toggleOptions: Array<PoSelectOption> = [
-    { label: 'Todas las categorias', value: PoButtonGroupToggle.None },
-    { label: 'single', value: PoButtonGroupToggle.Single },
-    { label: 'multiple', value: PoButtonGroupToggle.Multiple },
+    { label: 'Todas las categorias', value: PoButtonGroupToggle.Multiple },
   ];
 
   //Metodo que traera todas las tareas usando el servicio con HTTP
@@ -42,5 +53,41 @@ export class TasksComponent implements OnInit {
       },
       (error) => console.error(error)
     );
+  }
+
+  //Metodo que traera todas las categorias usando el servicio con HTTP
+  getCategorys() {
+    this.categoryService.getCategorys().subscribe(
+      (categorysFromApi: Category[]) => {
+        this.categorys = categorysFromApi;
+        this.joinCategorys();
+      },
+      (error) => console.error(error)
+    );
+  }
+
+  //Metodo que obtiene las categorias y las agrega al arreglo typeCategorys
+  joinCategorys() {
+    for (let category of this.categorys) {
+      this.typesCategorys.push({
+        label: category.nombre,
+        value: category.id,
+      });
+    }
+  }
+
+  //Metodo que se dispara cuando se cambia la opcion en las opciones de selecciona tu categotria
+  changeCategoryId(id: number) {
+    if (id != 0) {
+      this.taskService.getTasksId(id).subscribe(
+        (tasksFromApi: Task[]) => {
+          console.log(tasksFromApi);
+          this.tasks = tasksFromApi;
+        },
+        (error) => console.error(error)
+      );
+    } else {
+      this.getTasks();
+    }
   }
 }
