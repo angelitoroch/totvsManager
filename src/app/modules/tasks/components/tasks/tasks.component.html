@@ -10,11 +10,11 @@
   <form #f="ngForm">
     <div *ngFor="let task of tasks">
       <div class="po-row-6 ">
-        <po-widget class="po-sm-12 po-lg-6" p-height="200" p-title="Categoria: " p-primary-label="Ver mas detalles"
+        <po-widget class="po-sm-12 po-lg-6" p-height="200" [p-title]="task.name" p-primary-label="Ver mas detalles"
           (p-primary-action)="openModalDetails(task)">
           <div class="po-md-8">
-            <p><strong>Nombre:</strong> {{ task.name }}</p>
             <p><strong>Descripcion:</strong> {{ task.description }}</p>
+            <p><strong>Estatus:</strong> {{ task.status }}</p>
           </div>
         </po-widget>
       </div>

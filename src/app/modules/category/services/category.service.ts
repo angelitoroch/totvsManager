@@ -14,7 +14,7 @@ export class CategoryService {
   constructor(private http: HttpClient) {}
 
   //Metodo que trae una catgoria en especifico
-  getCategory(cagetoryId: string): Observable<Category> {
+  getCategory(cagetoryId: number): Observable<Category> {
     const url = this.baseURL + cagetoryId;
     return this.http.get<Category>(url);
   }
