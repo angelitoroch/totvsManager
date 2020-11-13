@@ -5,6 +5,8 @@ import { TaskService } from '../../service/task.service';
 import { PoModalComponent } from '@po-ui/ng-components';
 import { CategoryService } from 'src/app/modules/category/services/category.service';
 import { Category } from 'src/app/modules/category/interfaces/category';
+import { Local } from 'protractor/built/driverProviders';
+import { Console } from 'console';
 
 @Component({
   selector: 'app-tasks',
@@ -39,11 +41,6 @@ export class TasksComponent implements OnInit {
     this.taskPadre = oTask;
     this.poModal.open();
   }
-
-  //TODO Falta definir una opcion por default y que obtenga las categorias de los productos
-  readonly toggleOptions: Array<PoSelectOption> = [
-    { label: 'Todas las categorias', value: PoButtonGroupToggle.Multiple },
-  ];
 
   //Metodo que traera todas las tareas usando el servicio con HTTP
   getTasks() {
