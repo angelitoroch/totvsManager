@@ -5,8 +5,6 @@ import { TaskService } from '../../service/task.service';
 import { PoModalComponent } from '@po-ui/ng-components';
 import { CategoryService } from 'src/app/modules/category/services/category.service';
 import { Category } from 'src/app/modules/category/interfaces/category';
-import { Local } from 'protractor/built/driverProviders';
-import { Console } from 'console';
 
 @Component({
   selector: 'app-tasks',

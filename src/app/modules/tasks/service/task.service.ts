@@ -10,7 +10,7 @@ import { Task } from '../interfaces/task';
 export class TaskService {
   //Se definen las rutas de la api
   baseURL = environment.apiURL + '/tasks/';
-  baseURL2 = environment.apiURL + '/tasks?categoria_id=';
+  baseURL2 = environment.apiURL + '/categpry?nombre=';
 
   constructor(private http: HttpClient) {}
 

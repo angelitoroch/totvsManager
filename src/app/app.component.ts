@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 //Componentes y elementos de PO UI
 import { PoMenuItem } from '@po-ui/ng-components';
-import { PoToolbarAction, PoToolbarProfile } from '@po-ui/ng-components';
+import { PoToolbarProfile } from '@po-ui/ng-components';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +11,8 @@ import { PoToolbarAction, PoToolbarProfile } from '@po-ui/ng-components';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  menuItemSelected: string;//Item seleccionado del menu
-  profile: PoToolbarProfile;
-  profileActions: Array<PoToolbarAction>;
+  menuItemSelected: string; //Item seleccionado del menu
+  profile: PoToolbarProfile; //Avatar de usuario posterior derecha
 
   menus: Array<PoMenuItem> = [
     {

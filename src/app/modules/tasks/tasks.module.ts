@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { PoModalModule } from '@po-ui/ng-components';
 import { ModalDetailComponent } from './components/modal-detail/modal-detail.component';
 import { PoDynamicModule } from '@po-ui/ng-components';
+import { LookupComponent } from './components/lookup/lookup.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PoDynamicModule } from '@po-ui/ng-components';
     MakeTasksComponent,
     ModifyTaskComponent,
     ModalDetailComponent,
+    LookupComponent,
   ],
   imports: [
     PoDynamicModule,
