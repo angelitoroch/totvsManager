@@ -10,7 +10,7 @@ import { Task } from '../interfaces/task';
 export class TaskService {
   //Se definen las rutas de la api
   baseURL = environment.apiURL + '/tasks/';
-  baseURL2 = environment.apiURL + '/tasks?categoria_id=';
+  baseURL2 = environment.apiURL + '/categpry?nombre=';
 
   constructor(private http: HttpClient) {}
 
@@ -29,5 +29,10 @@ export class TaskService {
   getTasksId(categoryId: number): Observable<Task[]> {
     const url = this.baseURL2 + categoryId;
     return this.http.get<Task[]>(url);
+  }
+
+  //Metodo para crear una nueva tarea
+  createTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.baseURL, task);
   }
 }

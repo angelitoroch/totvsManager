@@ -6,6 +6,7 @@ import { MakeTasksComponent } from './components/make-tasks/make-tasks.component
 import { ModifyTaskComponent } from './components/modify-task/modify-task.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 
+//Rutas del modulo task
 const routes: Routes = [
   {
     path: '',

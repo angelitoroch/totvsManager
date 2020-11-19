@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 //Componentes y elementos de PO UI
 import { PoMenuItem } from '@po-ui/ng-components';
-import { PoToolbarAction, PoToolbarProfile } from '@po-ui/ng-components';
+import { PoToolbarProfile } from '@po-ui/ng-components';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +11,10 @@ import { PoToolbarAction, PoToolbarProfile } from '@po-ui/ng-components';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  menuItemSelected: string;//Item seleccionado del menu
-  profile: PoToolbarProfile;
-  profileActions: Array<PoToolbarAction>;
+  menuItemSelected: string; //Item seleccionado del menu
+  profile: PoToolbarProfile; //Avatar de usuario posterior derecha
 
+  //Array donde se asignan las caracteristicas de los items del menu como icono, accion y su shortlabel
   menus: Array<PoMenuItem> = [
     {
       label: 'HOME',
@@ -109,7 +109,6 @@ export class AppComponent implements OnInit {
     switch (menu.label) {
       case 'Crear Tarea': {
         this.menuItemSelected = menu.label;
-        console.log('entro');
         this.router.navigate(['tasks/makeTask']);
         break;
       }

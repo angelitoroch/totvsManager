@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PoButtonGroupToggle, PoSelectOption } from '@po-ui/ng-components';
+import { PoSelectOption } from '@po-ui/ng-components';
 import { Task } from '../../interfaces/task';
 import { TaskService } from '../../service/task.service';
 import { PoModalComponent } from '@po-ui/ng-components';
-import { CategoryService } from 'src/app/modules/category/services/category.service';
 import { Category } from 'src/app/modules/category/interfaces/category';
-import { Local } from 'protractor/built/driverProviders';
-import { Console } from 'console';
+
+//Servicio
+import { CategoryService } from 'src/app/modules/category/services/category.service';
 
 @Component({
   selector: 'app-tasks',
@@ -17,8 +17,7 @@ export class TasksComponent implements OnInit {
   tasks: Task[]; //Arreglo donde se guardaran los valores de todos las taareas
   taskPadre: Task; //Variable del tipo Task que servira para pasar objeto a un componente Hijo
   typeCategory: number = 0; //Tategoria por default
-  categorys: Category[];
-  category: Category;
+  categorys: Category[]; //Variable donde se guardaran las categorias
   @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
 
   //Array con las opciones definidas para las categorias
