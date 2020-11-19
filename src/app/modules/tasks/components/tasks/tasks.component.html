@@ -5,12 +5,11 @@
   <div class="po-row">
     <po-select class="po-md-3" name="typeCategory" p-label="Selecciona la categoria" [(ngModel)]=typeCategory
       [p-options]="typesCategorys" (p-change)="changeCategoryId(typeCategory)"> </po-select>
+    <!--Formulario que mostrara un Lookup en el cual se puede hacer las busquedas-->
     <form class="po-md-9" #f="ngForm">
       <app-lookup></app-lookup>
     </form>
   </div>
-
-
 
   <!--Se muestran los items de la categoria seleccionada anteriormente-->
   <form #f="ngForm">

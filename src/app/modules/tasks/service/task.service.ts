@@ -30,4 +30,9 @@ export class TaskService {
     const url = this.baseURL2 + categoryId;
     return this.http.get<Task[]>(url);
   }
+
+  //Metodo para crear una nueva tarea
+  createTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.baseURL, task);
+  }
 }

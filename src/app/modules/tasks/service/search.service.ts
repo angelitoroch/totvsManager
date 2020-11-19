@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class SearchService {
+export class SearchService implements PoLookupFilter{
   baseURL = environment.apiURL + '/tasks/';
   
   constructor(private httpClient: HttpClient) {}
