@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
           action: this.printMenuSubItem.bind(this),
         },
         {
-          label: 'Modificar Tarea',
+          label: 'Modificar o Eliminar Tarea',
           action: this.printMenuSubItem.bind(this),
         },
       ],
@@ -112,7 +112,7 @@ export class AppComponent implements OnInit {
         this.router.navigate(['tasks/makeTask']);
         break;
       }
-      case 'Modificar Tarea': {
+      case 'Modificar o Eliminar Tarea': {
         this.menuItemSelected = menu.label;
         this.router.navigate(['tasks/modifyTask']);
         break;

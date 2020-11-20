@@ -1,1 +1,36 @@
-<p>modify-task works!</p>
+<!--Mientras haya tareas que mostrar se activa-->
+<ng-container *ngIf="tasks">
+
+  <!--toogle que mostrara las categorias que hay hasta el momento registradas-->
+  <div class="po-row">
+    <po-select class="po-md-3" name="typeCategory" p-label="Selecciona la categoria" [(ngModel)]=typeCategory
+      [p-options]="typesCategorys" (p-change)="changeCategoryId(typeCategory)"> </po-select>
+    <!--Formulario que mostrara un Lookup en el cual se puede hacer las busquedas-->
+    <form class="po-md-9" #f="ngForm">
+      <app-lookup></app-lookup>
+    </form>
+  </div>
+
+  <!--Se muestran los items de la categoria seleccionada anteriormente-->
+  <form #f="ngForm">
+    <div *ngFor="let task of tasks">
+      <div class="po-row-6 ">
+        <po-widget class="po-sm-12 po-lg-6" p-height="200" [p-title]="task.name" p-primary-label="Editar Tarea"
+          p-secondary-label="Eliminar" (p-primary-action)="openModalDetails(task)"
+          (p-secondary-action)="DeleteTask(task.id)">
+          <div class="po-md-12">
+            <p><strong>Descripcion:</strong> {{ task.description }}</p>
+            <p><strong>Estatus:</strong> {{ task.status }}</p>
+          </div>
+        </po-widget>
+      </div>
+    </div>
+  </form>
+
+</ng-container>
+
+<!--Modal que mostrara la información del item seleccionado de la lista-->
+<po-modal #modal p-title="Detalles">
+  <!--Modal que comunica al componente padre del hijo con @Input-->
+  <app-modal-detail [taskHijo]="taskPadre" *ngIf='taskPadre'></app-modal-detail>
+</po-modal>

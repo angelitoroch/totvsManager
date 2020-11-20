@@ -104,7 +104,7 @@ export class MakeTasksComponent implements OnInit {
     this.taskService
       .createTask(this.modelTask)
       .subscribe((response: Task) =>
-        console.log('Exito al ingresar el usuario id: ' + response.id)
+        console.log('Exito al ingresar la Task id: ' + response.id)
       );
   }
 }

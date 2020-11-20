@@ -1,7 +1,7 @@
-<!--Mientras alla tareas que mostrar se activa-->
+<!--Mientras haya tareas que mostrar se activa-->
 <ng-container *ngIf="tasks">
 
-  <!--toogle que mostrara las categorias que hay hasta registradas-->
+  <!--toogle que mostrara las categorias que hay hasta el momento registradas-->
   <div class="po-row">
     <po-select class="po-md-3" name="typeCategory" p-label="Selecciona la categoria" [(ngModel)]=typeCategory
       [p-options]="typesCategorys" (p-change)="changeCategoryId(typeCategory)"> </po-select>
