@@ -1,10 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PoModalComponent, PoSelectOption } from '@po-ui/ng-components';
-import { Category } from 'src/app/modules/category/interfaces/category';
-import { CategoryService } from 'src/app/modules/category/services/category.service';
-import { Task } from '../../interfaces/task';
-import { TaskService } from '../../service/task.service';
 
+//Componentes PO UI
+import { PoModalComponent, PoSelectOption } from '@po-ui/ng-components';
+//Interfaces
+import { Task } from '../../interfaces/task';
+import { Category } from 'src/app/modules/category/interfaces/category';
+//Servicio
+import { TaskService } from '../../service/task.service';
+import { CategoryService } from 'src/app/modules/category/services/category.service';
 @Component({
   selector: 'app-modify-task',
   templateUrl: './modify-task.component.html',
@@ -22,6 +25,7 @@ export class ModifyTaskComponent implements OnInit {
     { label: 'TODAS LAS CATEGORIAS', value: 0 },
   ];
 
+  //Se inicializan los servicios
   constructor(
     private taskService: TaskService,
     private categoryService: CategoryService
@@ -82,5 +86,13 @@ export class ModifyTaskComponent implements OnInit {
     } else {
       this.getTasks();
     }
+  }
+
+  //Metodo que permitira la eliminación de la tarea
+  DeleteTask(id: number) {
+    this.taskService
+      .deleteTask(id)
+      .subscribe(() => console.log('Eliminado correctamente Task: ' + id));
+    this.ngOnInit();
   }
 }
