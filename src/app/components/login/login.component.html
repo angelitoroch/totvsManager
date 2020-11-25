@@ -1,21 +1,21 @@
 <div class="body">
     <div class="login-box">
         <h2>Login</h2>
-        <form>
+        <form [formGroup]="loginForm">
             <div class="user-box">
-                <input type="text" name="" required="">
+                <input formControlName="correo" type="text" name="" required="">
                 <label>Correo</label>
             </div>
             <div class="user-box">
-                <input type="password" name="" required="">
+                <input formControlName="contraseña" type="password" name="" required="">
                 <label>Contraseña</label>
             </div>
-            <a href="#">
+            <a (click)="onLogin(loginForm.value)">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                ACCEDER
+                ENVIAR
             </a>
         </form>
     </div>
