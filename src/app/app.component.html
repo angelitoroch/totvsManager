@@ -1,4 +1,5 @@
-<div class="po-wrapper" *ngIf="isLogged!=true; else elseBlock">
+<!--Compara si la variable isLogged es verdaddera para mostrar el menu-->
+<div class="po-wrapper" *ngIf="isLogged==true; else elseBlock">
 
   <!--Menu lateral izquierdo-->
   <po-menu p-collapsed=false p-filter [p-menus]="menus">
@@ -18,6 +19,7 @@
 
 </div>
 
+<!--Ng template que se lanzara mientras el usuario no tenga datos almacenados en el localstorage-->
 <ng-template #elseBlock>
   <app-login></app-login>
 </ng-template>

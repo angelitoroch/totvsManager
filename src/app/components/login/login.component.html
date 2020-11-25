@@ -3,12 +3,18 @@
         <h2>Login</h2>
         <form [formGroup]="loginForm">
             <div class="user-box">
-                <input formControlName="correo" type="text" name="" required="">
+                <input formControlName="correo" type="text" name="" required pattern=".+@totvs.com.br">
                 <label>Correo</label>
             </div>
             <div class="user-box">
-                <input formControlName="contraseña" type="password" name="" required="">
+                <input formControlName="contraseña" type="password" name="" required>
                 <label>Contraseña</label>
+            </div>
+            <div class="form-check" style="color: white;">
+                <input class="form-check-input" type="checkbox" value="" id="checkDefault" formControlName="checkDefault">
+                <label class="form-check-label" for="checkDefault">
+                    Recordar contraseña
+                </label>
             </div>
             <a (click)="onLogin(loginForm.value)">
                 <span></span>
