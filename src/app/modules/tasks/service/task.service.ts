@@ -40,4 +40,10 @@ export class TaskService {
     const url = this.baseURL + id;
     return this.http.delete(url);
   }
+
+  modifyTask(task: Task): Observable<Task> {
+    console.log(task);
+    const url = this.baseURL + task.id;
+    return this.http.put<Task>(url, task);
+  }
 }

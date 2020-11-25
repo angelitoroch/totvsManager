@@ -14,6 +14,7 @@ import { PoDividerModule } from '@po-ui/ng-components';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PoToolbarModule } from '@po-ui/ng-components';
 import { DefaultComponent } from './components/default/default.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DefaultComponent } from './components/default/default.component';
     PhothoUserComponent,
     NotFoundComponent,
     DefaultComponent,
+    LoginComponent,
   ],
   imports: [
     PoToolbarModule,

@@ -15,6 +15,7 @@ import { ModalDetailComponent } from './components/modal-detail/modal-detail.com
 import { PoDynamicModule } from '@po-ui/ng-components';
 import { LookupComponent } from './components/lookup/lookup.component';
 import { PoButtonModule } from '@po-ui/ng-components';
+import { ModalDetailEditComponent } from './components/modal-detail-edit/modal-detail-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PoButtonModule } from '@po-ui/ng-components';
     ModifyTaskComponent,
     ModalDetailComponent,
     LookupComponent,
+    ModalDetailEditComponent,
   ],
   imports: [
     PoButtonModule,

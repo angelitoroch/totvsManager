@@ -36,8 +36,8 @@ export class ModifyTaskComponent implements OnInit {
     this.getTasks();
   }
 
-  //Metodo que abre el Modal y pasa el objeto task del componente padre al componente hijo
-  openModalDetails(oTask: Task) {
+  //Metodo que abre el Modal y pasa el objeto task del componente padre al componente hijo para poder ser editado
+  openModalDetailsEdit(oTask: Task) {
     this.taskPadre = oTask;
     this.poModal.open();
   }

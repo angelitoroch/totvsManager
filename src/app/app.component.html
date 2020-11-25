@@ -1,8 +1,8 @@
-<div class="po-wrapper">
+<div class="po-wrapper" *ngIf="isLogged!=true; else elseBlock">
 
-  <!--Menu lateral derecho-->
+  <!--Menu lateral izquierdo-->
   <po-menu p-collapsed=false p-filter [p-menus]="menus">
-    <!--Encabezado de menu lateral derecho-->
+    <!--Encabezado de menu lateral izquierdo-->
     <div *p-menu-header-template class="po-p-12 po-font-title sample-menu-header-text-color">
       <app-photho-user></app-photho-user>
     </div>
@@ -17,3 +17,7 @@
   </po-page-detail>
 
 </div>
+
+<ng-template #elseBlock>
+  <app-login></app-login>
+</ng-template>
