@@ -13,6 +13,7 @@ import { PoToolbarProfile } from '@po-ui/ng-components';
 export class AppComponent implements OnInit {
   menuItemSelected: string; //Item seleccionado del menu
   profile: PoToolbarProfile; //Avatar de usuario posterior derecha
+  isLogged: boolean;
 
   //Array donde se asignan las caracteristicas de los items del menu como icono, accion y su shortlabel
   menus: Array<PoMenuItem> = [
@@ -136,5 +137,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     //TODO Falta poner acciones en el menu del user icon;
     this.profile = { avatar: '', subtitle: '', title: '' };
+    this.isLogged = true;
   }
 }
