@@ -21,6 +21,9 @@
     "@angular/router": "~10.2.0",
     "@po-ui/ng-components": "^3.11.0",
     "@po-ui/ng-templates": "^3.11.0",
+    "@popperjs/core": "^2.5.4",
+    "bootstrap": "^4.5.3",
+    "jquery": "^3.5.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

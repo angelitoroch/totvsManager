@@ -36,11 +36,13 @@ export class TaskService {
     return this.http.post<Task>(this.baseURL, task);
   }
 
+  //Metodo que elimina una tarea
   deleteTask(id: number): Observable<any> {
     const url = this.baseURL + id;
     return this.http.delete(url);
   }
 
+  //Metodo que modifica una tarea
   modifyTask(task: Task): Observable<Task> {
     console.log(task);
     const url = this.baseURL + task.id;

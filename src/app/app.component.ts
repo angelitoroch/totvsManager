@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 //Componentes y elementos de PO UI
 import { PoMenuItem } from '@po-ui/ng-components';
 import { PoToolbarProfile } from '@po-ui/ng-components';
+import { LocalstorageService } from './services/localstorage.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ import { PoToolbarProfile } from '@po-ui/ng-components';
 export class AppComponent implements OnInit {
   menuItemSelected: string; //Item seleccionado del menu
   profile: PoToolbarProfile; //Avatar de usuario posterior derecha
-  isLogged: boolean;
+  isLogged: boolean;//Variable que sera positiva o negativa dependiendo si hay algo en localstorage
 
   //Array donde se asignan las caracteristicas de los items del menu como icono, accion y su shortlabel
   menus: Array<PoMenuItem> = [
@@ -132,11 +133,19 @@ export class AppComponent implements OnInit {
   }
 
   //Constructor de la clase y se inicializa el router para redirigir entre paginas
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private localStorageService: LocalstorageService
+  ) {}
 
   ngOnInit() {
     //TODO Falta poner acciones en el menu del user icon;
     this.profile = { avatar: '', subtitle: '', title: '' };
-    this.isLogged = true;
+    this.checkLogged();
+  }
+
+  //Metodo que verifica si en el localstorage hay datos para mantener la sesión abierta
+  checkLogged() {
+    this.isLogged = this.localStorageService.get('isLogged');
   }
 }
