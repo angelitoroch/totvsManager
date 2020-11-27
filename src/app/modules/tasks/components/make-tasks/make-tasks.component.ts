@@ -49,7 +49,8 @@ export class MakeTasksComponent implements OnInit {
       options: [
         { label: 'Trabajo', value: 1 },
         { label: 'Hogar', value: 2 },
-      ], // TODO: Falta mandar las opciones por medio de un servicio
+        { label: 'Universidad TOTVS', value: 3 },
+      ],
     },
     {
       property: 'description',

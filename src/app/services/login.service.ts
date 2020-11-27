@@ -9,8 +9,8 @@ import { Users } from '../interfaces/users';
 })
 export class LoginService {
   //Se definen las rutas de la api
-  baseURL = environment.apiURL + '/users/';//Busca el usuario y sus datos
-  baseURL2 = environment.apiURL + '/users?correo=';//Busca por correo para el login
+  baseURL = environment.apiURL + '/users/'; //Busca el usuario y sus datos
+  baseURL2 = environment.apiURL + '/users?correo='; //Busca por correo para el login
 
   //Se inicializa el servicio
   constructor(private http: HttpClient) {}

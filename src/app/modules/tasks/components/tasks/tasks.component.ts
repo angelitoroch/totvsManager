@@ -24,6 +24,7 @@ export class TasksComponent implements OnInit {
   typesCategorys: Array<PoSelectOption> = [
     { label: 'TODAS LAS CATEGORIAS', value: 0 },
   ];
+  router: any;
 
   constructor(
     private taskService: TaskService,

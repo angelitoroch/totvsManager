@@ -44,7 +44,7 @@ export class TaskService {
 
   //Metodo que modifica una tarea
   modifyTask(task: Task): Observable<Task> {
-    console.log(task);
+    console.log(task.id);
     const url = this.baseURL + task.id;
     return this.http.put<Task>(url, task);
   }
