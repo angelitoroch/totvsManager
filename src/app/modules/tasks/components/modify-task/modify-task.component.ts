@@ -44,7 +44,7 @@ export class ModifyTaskComponent implements OnInit {
 
   //Metodo que traera todas las tareas usando el servicio con HTTP
   getTasks() {
-    this.taskService.getTasks().subscribe(
+    this.taskService.getTasksPending().subscribe(
       (tasksFromApi: Task[]) => {
         this.tasks = tasksFromApi;
       },
