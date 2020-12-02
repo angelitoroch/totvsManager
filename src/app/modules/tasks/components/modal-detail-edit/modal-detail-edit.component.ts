@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {
+  PoDynamicFormField,
   PoDynamicViewField,
   PoNotificationService,
 } from '@po-ui/ng-components';
@@ -14,12 +15,11 @@ import { TaskService } from '../../service/task.service';
 })
 export class ModalDetailEditComponent implements OnInit {
   //taskHijo es la variable que recibe el objeto Task del componente padre
-  // TODO: FALTA AGREGAR EL ESTATUS A LAS TAREAS
   @Input() taskHijo: Task;
   task: Task;
 
   //Se definen los campos del formulario
-  fields: Array<PoDynamicViewField> = [
+  fields: Array<PoDynamicFormField> = [
     {
       property: 'name',
       label: 'NOMBRE',
@@ -35,6 +35,7 @@ export class ModalDetailEditComponent implements OnInit {
       format: 'mm/dd/yyyy',
       divider: 'FECHAS',
       gridColumns: 6,
+      validate: this.esMenorFechaInicio.bind(this),
     },
     {
       property: 'enddate',
@@ -42,6 +43,17 @@ export class ModalDetailEditComponent implements OnInit {
       type: 'date',
       format: 'mm/dd/yyyy',
       gridColumns: 6,
+      validate: this.esMenorFechaVencimiento.bind(this),
+    },
+    {
+      property: 'categoria_id',
+      label: 'Categoria',
+      gridColumns: 12,
+      options: [
+        { label: 'Trabajo', value: 1 },
+        { label: 'Hogar', value: 2 },
+        { label: 'Universidad TOTVS', value: 3 },
+      ],
     },
   ];
 
@@ -62,5 +74,62 @@ export class ModalDetailEditComponent implements OnInit {
     this.taskService
       .modifyTask(this.task)
       .subscribe(() => console.log('Task modificado correctamente'));
+  }
+
+  //Metodo que verifica la fecha actual y no permite introducir una fecha antes de
+  esMenorFechaInicio(date: any) {
+    let bandera: boolean;
+    bandera = this.esMenor(date);
+    console.log(bandera);
+    if (bandera != false) {
+      alert('La fecha de inicio no puede ser menor al dia actual');
+      return {
+        value: { startdate: undefined },
+        fields: [{ property: 'startdate' }],
+        focus: 'startdate',
+      };
+    }
+  }
+
+  //Metodo que verifica la fecha actual y no permite introducir una fecha antes de
+  esMenorFechaVencimiento(date: any) {
+    let bandera: boolean;
+    bandera = this.esMenor(date);
+    console.log(bandera);
+    if (bandera != false) {
+      alert('La fecha de Entrega/Vencimiento no puede ser menor al dia actual');
+      return {
+        value: { enddate: undefined },
+        fields: [{ property: 'enddate' }],
+        focus: 'enddate',
+      };
+    }
+  }
+
+  //Metodo que verifica si la fecha como parametro es mas antigua a la del sistema
+  esMenor(date: any) {
+    //Fecha usuario
+    let fechaUser = new Date(date.value);
+    let fechaSystem = '';
+    let fechaSystemConv: Date;
+
+    //Se saca el dia, mes y año
+    let diaSystem = new Date().getDate();
+    let mesSystem = new Date().getMonth() + 1;
+    let añoSystem = new Date().getFullYear();
+
+    if (diaSystem >= 1 && diaSystem <= 9) {
+      fechaSystem = '' + añoSystem + '-' + mesSystem + '-0' + diaSystem;
+    } else {
+      fechaSystem = '' + añoSystem + '-' + mesSystem + '-0' + diaSystem;
+    }
+
+    fechaSystemConv = new Date(fechaSystem);
+
+    if (fechaUser < fechaSystemConv) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

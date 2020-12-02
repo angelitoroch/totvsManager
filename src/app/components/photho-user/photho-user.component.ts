@@ -8,7 +8,7 @@ import { LocalstorageService } from 'src/app/services/localstorage.service';
   styleUrls: ['./photho-user.component.css'],
 })
 export class PhothoUserComponent implements OnInit {
-  avatar = 'http://lorempixel.com/300/300/cats/'; //TODO falta colocar la imagen correcta del usuario
+  avatar = 'http://lorempixel.com/300/300/cats/';
   nombre: String;
 
   constructor(private localStorageService: LocalstorageService) {}
