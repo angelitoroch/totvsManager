@@ -27,9 +27,16 @@ export class TaskService {
     return this.http.get<Task>(url);
   }
 
-  //Metodo que trae todas las tareas
+  //Metodo que trae todas las tareas de un usuario
   getTasks(): Observable<Task[]> {
     this.temp = this.localStorageService.get('userName');
+    return this.http.get<Task[]>(this.baseURL + this.temp);
+  }
+
+  //Metodo qye trae todas las tareas con dos filtros 1- usuario y 2-Status
+  getTasksPending(): Observable<Task[]> {
+    this.temp = this.localStorageService.get('userName');
+    this.temp += "&status=Pendiente"
     return this.http.get<Task[]>(this.baseURL + this.temp);
   }
 
