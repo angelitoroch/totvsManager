@@ -161,6 +161,7 @@ export class AppComponent implements OnInit {
     },
   ];
 
+  //Se inicializan
   ngOnInit() {
     this.profile = { avatar: '', subtitle: '', title: '' };
     this.checkLogged();

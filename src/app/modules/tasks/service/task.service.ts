@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { environment } from 'src/environments/environment';
 import { Task } from '../interfaces/task';
 
@@ -9,10 +10,16 @@ import { Task } from '../interfaces/task';
 })
 export class TaskService {
   //Se definen las rutas de la api
-  baseURL = environment.apiURL + '/tasks/';
+  baseURL = environment.apiURL + '/tasks?autor=';
+  baseDelete = environment.apiURL + '/tasks/';
+  baseModify = environment.apiURL + '/tasks/';
   baseURL2 = environment.apiURL + '/tasks?categoria_id=';
+  temp: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private localStorageService: LocalstorageService
+  ) {}
 
   //Metodo que trae una tarea en especifico
   getTask(taskId: number): Observable<Task> {
@@ -22,7 +29,8 @@ export class TaskService {
 
   //Metodo que trae todas las tareas
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.baseURL);
+    this.temp = this.localStorageService.get('userName');
+    return this.http.get<Task[]>(this.baseURL + this.temp);
   }
 
   //Metodo que trae todas las tareas de una categoria definida
@@ -31,21 +39,21 @@ export class TaskService {
     return this.http.get<Task[]>(url);
   }
 
-  //Metodo para crear una nueva tarea
+  //Metodo para crear una nueva tareaF
   createTask(task: Task): Observable<Task> {
     return this.http.post<Task>(this.baseURL, task);
   }
 
   //Metodo que elimina una tarea
   deleteTask(id: number): Observable<any> {
-    const url = this.baseURL + id;
+    const url = this.baseDelete + id;
     return this.http.delete(url);
   }
 
   //Metodo que modifica una tarea
   modifyTask(task: Task): Observable<Task> {
     console.log(task.id);
-    const url = this.baseURL + task.id;
+    const url = this.baseModify + task.id;
     return this.http.put<Task>(url, task);
   }
 }

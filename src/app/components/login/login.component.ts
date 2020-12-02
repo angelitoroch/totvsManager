@@ -57,6 +57,9 @@ export class LoginComponent implements OnInit {
   //Metodo que asigna a la variable isLogged un true y corrobora que recordara el inicio de sesion
   setLocalStorage() {
     this.localStorageService.set('isLogged', true);
-    this.localStorageService.set('userName', this.userLocalStorage.nombre_usuario);
+    this.localStorageService.set(
+      'userName',
+      this.userLocalStorage.nombre_usuario
+    );
   }
 }

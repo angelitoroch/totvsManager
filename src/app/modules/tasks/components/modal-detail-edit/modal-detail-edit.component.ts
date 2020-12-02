@@ -38,7 +38,7 @@ export class ModalDetailEditComponent implements OnInit {
     },
     {
       property: 'enddate',
-      label: 'FECHA ENTREGA',
+      label: 'FECHA ENTREGA/VENCIMIENTO',
       type: 'date',
       format: 'mm/dd/yyyy',
       gridColumns: 6,
