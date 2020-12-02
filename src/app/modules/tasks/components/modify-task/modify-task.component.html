@@ -1,5 +1,5 @@
 <!--Mientras haya tareas que mostrar se activa-->
-<ng-container *ngIf="tasks">
+<ng-container *ngIf="tasks.length!=0;else elseBlock">
 
   <!--toogle que mostrara las categorias que hay hasta el momento registradas-->
   <div class="po-row">
@@ -34,3 +34,16 @@
   <!--Modal que comunica al componente padre del hijo con @Input-->
   <app-modal-detail-edit [taskHijo]="taskPadre" *ngIf='taskPadre'></app-modal-detail-edit>
 </po-modal>
+
+<!--Template que se lanza si no hay tareas-->
+<ng-template #elseBlock>
+  <div class="row justify-content-center h-100">
+    <div class="col-sm-8 align-self-center text-center">
+      <div class="card shadow">
+        <div class="card-body diseño">
+          <h1 class="m-5">ESTE USUARIO NO TIENE TAREAS REGISTRADAS</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

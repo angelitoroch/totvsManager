@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 //Componentes y elementos de PO UI
-import { PoMenuItem } from '@po-ui/ng-components';
+import { PoMenuItem, PoToolbarAction } from '@po-ui/ng-components';
 import { PoToolbarProfile } from '@po-ui/ng-components';
 import { LocalstorageService } from './services/localstorage.service';
 
@@ -14,7 +14,7 @@ import { LocalstorageService } from './services/localstorage.service';
 export class AppComponent implements OnInit {
   menuItemSelected: string; //Item seleccionado del menu
   profile: PoToolbarProfile; //Avatar de usuario posterior derecha
-  isLogged: boolean;//Variable que sera positiva o negativa dependiendo si hay algo en localstorage
+  isLogged: boolean; //Variable que sera positiva o negativa dependiendo si hay algo en localstorage
 
   //Array donde se asignan las caracteristicas de los items del menu como icono, accion y su shortlabel
   menus: Array<PoMenuItem> = [
@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
         },
       ],
     },
+    /*
     {
       label: 'GESTION DE CATEGORIAS',
       action: this.printMenuAction.bind(this),
@@ -67,7 +68,7 @@ export class AppComponent implements OnInit {
       action: this.printMenuAction.bind(this),
       icon: 'po-icon po-icon-calendar',
       shortLabel: 'calendar',
-    },
+    },*/
   ];
 
   //Opciones en el menu lateral izquierdo, 1er nivel
@@ -138,8 +139,30 @@ export class AppComponent implements OnInit {
     private localStorageService: LocalstorageService
   ) {}
 
+  profileActions: Array<PoToolbarAction> = [
+    {
+      //TODO Falta mostrar datos del usuario;
+      icon: 'po-icon-user',
+      label: 'Datos del usuario',
+      action: (item) => this.showAction(item),
+    },
+    {
+      //TODO Falta mostrar datos de la compañia
+      icon: 'po-icon-company',
+      label: 'Datos de la compañia',
+      action: (item) => this.showAction(item),
+    },
+    {
+      icon: 'po-icon-exit',
+      label: 'Exit',
+      type: 'danger',
+      separator: true,
+      action: (item) => this.removeLogged(),
+    },
+  ];
+
+  //Se inicializan
   ngOnInit() {
-    //TODO Falta poner acciones en el menu del user icon;
     this.profile = { avatar: '', subtitle: '', title: '' };
     this.checkLogged();
   }
@@ -147,5 +170,16 @@ export class AppComponent implements OnInit {
   //Metodo que verifica si en el localstorage hay datos para mantener la sesión abierta
   checkLogged() {
     this.isLogged = this.localStorageService.get('isLogged');
+  }
+
+  //Cerrar sesión
+  removeLogged() {
+    this.localStorageService.remove('isLogged');
+    window.location.reload();
+  }
+
+  //TODO: Por borrar
+  showAction(item: any) {
+    throw new Error('Method not implemented.');
   }
 }
