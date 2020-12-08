@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {
   PoDynamicFormField,
-  PoDynamicViewField,
   PoNotificationService,
 } from '@po-ui/ng-components';
 import { Task } from '../../interfaces/task';

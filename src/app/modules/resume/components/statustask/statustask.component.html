@@ -1,0 +1,6 @@
+<!--Formulario para ingresar los datos -->
+<po-dynamic-form [p-fields]="fields" #dynamicForm [p-value]="task">
+</po-dynamic-form>
+<br>
+<po-button p-label="Modificar Status"
+    (p-click)="modifyTask(dynamicForm); poNotification.success('Estatus cambiado!');"> </po-button>
