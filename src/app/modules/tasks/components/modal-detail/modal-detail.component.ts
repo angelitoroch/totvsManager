@@ -9,7 +9,6 @@ import { Task } from '../../interfaces/task';
 })
 export class ModalDetailComponent implements OnInit {
   //taskHijo es la variable que recibe el objeto Task del componente padre
-  // TODO: FALTA AGREGAR EL ESTATUS A LAS TAREAS
   @Input() taskHijo: Task;
   fields: Array<PoDynamicViewField> = [
     {

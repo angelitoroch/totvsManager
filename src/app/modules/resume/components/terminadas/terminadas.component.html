@@ -1,0 +1,36 @@
+<div>
+    <font class="po-font-title">Tareas Finalizadas
+    </font>
+</div>
+
+<!--Mientras haya tareas que mostrar se activa-->
+<ng-container>
+
+    <!--Se muestran los items de la categoria seleccionada anteriormente-->
+    <form #f="ngForm" *ngIf="tasks.length!=0;else elseBlock">
+      <div *ngFor="let task of tasks">
+        <div class="po-row-12 ">
+          <po-widget p-height="150" [p-title]="task.name" p-primary-label="Cambiar Estatus"
+            (p-primary-action)="openModalDetails(task)">
+            <div class="po-md-12">
+              <p><strong>Vencimiento/Entrega:</strong> {{ task.enddate }}</p>
+            </div>
+          </po-widget>
+        </div>
+      </div>
+    </form>
+  
+  </ng-container>
+  
+  <!--Modal que mostrara la información del item seleccionado de la lista-->
+  <po-modal #modal p-title="Detalles Edición">
+    <!--Modal que comunica al componente padre del hijo con @Input-->
+    <app-statustask [taskHijo]="taskPadre" *ngIf='taskPadre'></app-statustask>
+  </po-modal>
+  
+  <!--Template que se lanza si no hay tareas-->
+  <ng-template #elseBlock>
+    <div class="row justify-content-center h-100">
+      <h1 class="m-5">NO HAY TAREAS EN PROCESO</h1>
+    </div>
+  </ng-template>

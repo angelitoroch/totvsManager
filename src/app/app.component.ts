@@ -143,7 +143,7 @@ export class AppComponent implements OnInit {
     {
       //TODO Falta mostrar datos del usuario;
       icon: 'po-icon-user',
-      label: 'Datos del usuario',
+      label: 'Datos del desarrollador',
       action: (item) => this.showAction(item),
     },
     {

@@ -33,16 +33,38 @@ export class TaskService {
     return this.http.get<Task[]>(this.baseURL + this.temp);
   }
 
-  //Metodo qye trae todas las tareas con dos filtros 1- usuario y 2-Status
+  //Metodo qye trae todas las tareas con dos filtros 1- usuario y 2-Status(Pendiente)
   getTasksPending(): Observable<Task[]> {
     this.temp = this.localStorageService.get('userName');
-    this.temp += "&status=Pendiente"
+    this.temp += '&status=Pendiente';
+    return this.http.get<Task[]>(this.baseURL + this.temp);
+  }
+
+  //Metodo qye trae todas las tareas con dos filtros 1- usuario y 2-Status(Proceso)
+  getTasksProcess(): Observable<Task[]> {
+    this.temp = this.localStorageService.get('userName');
+    this.temp += '&status=Proceso';
+    return this.http.get<Task[]>(this.baseURL + this.temp);
+  }
+
+  //Metodo qye trae todas las tareas con dos filtros 1- usuario y 2-Status(Completa)
+  getTasksCompleta(): Observable<Task[]> {
+    this.temp = this.localStorageService.get('userName');
+    this.temp += '&status=Completada';
+    return this.http.get<Task[]>(this.baseURL + this.temp);
+  }
+
+  //Metodo qye trae todas las tareas con dos filtros 1- usuario y 2-Status(Completa)
+  getTasksAtrasada(): Observable<Task[]> {
+    this.temp = this.localStorageService.get('userName');
+    this.temp += '&status=Atrasada';
     return this.http.get<Task[]>(this.baseURL + this.temp);
   }
 
   //Metodo que trae todas las tareas de una categoria definida
   getTasksId(categoryId: number): Observable<Task[]> {
-    const url = this.baseURL2 + categoryId;
+    let url = this.baseURL2 + categoryId;
+    url += '&autor=' + this.localStorageService.get('userName');
     return this.http.get<Task[]>(url);
   }
 
