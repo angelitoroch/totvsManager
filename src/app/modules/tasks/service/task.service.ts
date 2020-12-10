@@ -50,7 +50,7 @@ export class TaskService {
   //Metodo qye trae todas las tareas con dos filtros 1- usuario y 2-Status(Completa)
   getTasksCompleta(): Observable<Task[]> {
     this.temp = this.localStorageService.get('userName');
-    this.temp += '&status=Completa';
+    this.temp += '&status=Completada';
     return this.http.get<Task[]>(this.baseURL + this.temp);
   }
 
